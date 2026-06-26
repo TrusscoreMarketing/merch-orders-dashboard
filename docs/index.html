@@ -709,7 +709,7 @@ function render() {
 }
 
 // Wire events
-['from', 'to', 'search', 'recipient'].forEach(id => $('#' + id).addEventListener('input', render));
+['from', 'to', 'recipient'].forEach(id => { const el = $('#' + id); if (el) el.addEventListener('input', render); });
 catList.addEventListener('change', render);
 $('#catAll').addEventListener('click', () => {
   catList.querySelectorAll('input').forEach(i => i.checked = true); render();
